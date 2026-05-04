@@ -35,13 +35,13 @@ def check_data_files():
         if not os.path.exists(path):
             missing.append(path)
     if missing:
-        print("❌ Missing data files:")
+        print("Missing data files:")
         for f in missing:
             print(f"   {f}")
-        print("\n👉 Download from: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce")
+        print("\nDownload from: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce")
         print("   Place all CSVs in the data/ folder then re-run this script.")
         sys.exit(1)
-    print("✅ All data files found.")
+    print("All data files found.")
 
 
 def load_tables(con):
@@ -57,7 +57,7 @@ def load_tables(con):
 
 
 def verify_schema(con):
-    print("\n📋 Table Summary:")
+    print("\nTable Summary:")
     print(f"{'Table':<25} {'Rows':>10} {'Columns':>10}")
     print("-" * 47)
     for table in TABLES:
@@ -67,7 +67,7 @@ def verify_schema(con):
 
 
 def run_sample_join(con):
-    print("\n🔗 Sample join — Revenue by top 5 categories:")
+    print("\nSample join — Revenue by top 5 categories:")
     result = con.execute("""
         SELECT
             COALESCE(ct.product_category_name_english,
@@ -94,17 +94,17 @@ def main():
 
     check_data_files()
 
-    print(f"\n📦 Connecting to {DB_PATH}...")
+    print(f"\nConnecting to {DB_PATH}...")
     con = duckdb.connect(DB_PATH)
 
-    print("⬆️  Loading tables:")
+    print("Loading tables:")
     load_tables(con)
 
     verify_schema(con)
     run_sample_join(con)
 
     con.close()
-    print(f"\n✅ Database ready: {DB_PATH}")
+    print(f"\nDatabase ready: {DB_PATH}")
     print("   Next step: python src/02_eda.py")
 
 
