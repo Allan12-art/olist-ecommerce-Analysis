@@ -28,7 +28,7 @@ python -m streamlit run src/05_dashboard.py
 
 ---
 
-## 🔬 Key Findings
+## Key Findings
 
 ### 1. Revenue & Growth
 - Revenue grew approximately 20x between September 2016 and November 2017,
