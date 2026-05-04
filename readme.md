@@ -8,26 +8,6 @@ Data: [Olist Brazilian E-Commerce — Kaggle](https://www.kaggle.com/datasets/ol
 
 ---
 
-## Project Structure
-
-olist_portfolio/
-│
-├── data/                    # Raw CSVs from Kaggle (not tracked in git)
-├── sql/
-│   ├── 01_schema.sql        # Table creation & data loading
-│   ├── 02_kpis.sql          # Revenue KPIs, AOV, window functions
-│   ├── 03_regional_seasonal.sql  # Revenue by region & time
-│   └── 04_cohorts_rfm.sql   # Cohort retention & RFM scoring
-├── src/
-│   ├── 01_setup_db.py       # Load CSVs → DuckDB
-│   ├── 02_eda.py            # Exploratory Data Analysis + charts
-│   ├── 03_rfm.py            # RFM segmentation + K-Means clustering
-│   ├── 04_forecasting.py    # Prophet revenue forecast
-│   └── 05_dashboard.py      # Streamlit interactive dashboard
-├── outputs/                 # Generated charts (PNG)
-└── README.md
-```
-
 ## How to Reproduce
 
 1. Install dependencies
